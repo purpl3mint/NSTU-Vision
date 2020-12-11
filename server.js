@@ -2,6 +2,7 @@ const express = require('express');
 const config = require('config');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
 
@@ -15,6 +16,14 @@ app.use('/api/camera', require('./routes/camera.routes'));
 app.use('/api/playlist', require('./routes/playlist.routes'));
 app.use('/api/signal', require('./routes/signal.routes'));
 app.use('/api/video', require('./routes/video.routes'));
+
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.join(__dirname, 'client', 'build')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
 
 async function start () {
     try {
