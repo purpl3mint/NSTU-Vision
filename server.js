@@ -6,7 +6,6 @@ const path = require('path');
 
 const app = express();
 
-const PORT = process.env.PORT || config.get('port') || 5000;
 const URI = config.get('mongoUri');
 
 app.use(express.json({extended: true}));
@@ -24,6 +23,8 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
 }
+
+const PORT = process.env.PORT || config.get('port') || 5000;
 
 async function start () {
     try {
