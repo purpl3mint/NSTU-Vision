@@ -4,7 +4,7 @@
   "description": "NSTU-Vision full-stack application",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
     "server": "nodemon server.js",
     "client": "npm run start --prefix client",
     "client:install": "npm install --prefix client",
@@ -17,6 +17,9 @@
   "author": "Dmitry Berezin <purpl3mint@yandex.ru>",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.6",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.2",
     "cors": "^2.8.5",
