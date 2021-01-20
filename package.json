@@ -4,7 +4,7 @@
   "description": "NSTU-Vision full-stack application",
   "main": "server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node server.js",
+    "start": "npm run server.js",
     "server": "nodemon server.js",
     "client": "npm run start --prefix client",
     "client:install": "npm install --prefix client",

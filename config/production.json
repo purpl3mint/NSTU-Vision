@@ -1,5 +1,5 @@
 {
-    "port": 5000,
+    "port": 80,
     "jwtSecret": "LEROY JENKINS",
     "mongoUri": "mongodb+srv://main_visioner:Purchasing9justify573@cluster0.wdinj.mongodb.net/NSTUVisionDB?retryWrites=true&w=majority"
 }
