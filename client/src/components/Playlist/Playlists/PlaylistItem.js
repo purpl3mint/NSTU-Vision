@@ -12,9 +12,11 @@ export const PlaylistItem = (props) => {
     return (
         <Link to="/playlist/view" onClick={clickHandler} className="collection-item">
             <div className="valign-wrapper">
-                <img src={preview} style={{marginRight: "15px"}}/>
-                <span>{playlist.description}</span>
-                <button className="btn" value={playlist._id} onClick={deleteHandler}>Удалить</button>
+                <div className="valign-wrapper col s9">
+                    <img src={preview} style={{marginRight: "15px"}}/>
+                    <span>{playlist.description}</span>
+                </div>
+                <button className="btn col offset-s1 s2" value={playlist._id} onClick={deleteHandler}>Удалить</button>
             </div>
         </Link>
     );

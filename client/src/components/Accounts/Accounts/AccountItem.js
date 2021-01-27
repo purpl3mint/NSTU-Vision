@@ -7,7 +7,7 @@ export const AccountItem = (props) => {
         <tr>
             <td>{name}</td>
             <td>{type}</td>
-            <button className="btn" onClick={deleteHandler} name={name}>Удалить</button>
+            <td><button className="btn" onClick={deleteHandler} name={name}>Удалить</button></td>
         </tr>
     );
 }

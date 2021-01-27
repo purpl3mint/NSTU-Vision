@@ -12,9 +12,11 @@ export const VideoInPlaylist = (props) => {
     return (
         <Link to="/video/view" className="collection-item" value={video._id} onClick={clickHandler}>
             <div className="valign-wrapper">
-                <img src={preview} style={{marginRight: "15px"}}/>
-                <span>{video.description}</span>
-                <button className="btn" value={video._id} onClick={deleteHandler}>Удалить</button>
+                <div className="valign-wrapper col s9">
+                    <img src={preview} style={{marginRight: "15px"}}/>
+                    <span>{video.description}</span>
+                </div>
+                <button className="btn col offset-s1 s2" value={video._id} onClick={deleteHandler}>Удалить</button>
             </div>
         </Link>
     );
