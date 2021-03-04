@@ -65,8 +65,8 @@ export const AddVideoToPlaylist = (props) => {
         <h2>Добавление видео в {currentPlaylist.description}</h2>
 
         <div className="row valign-wrapper left-align">
-            <div class="input-field col s5" style={{marginLeft: "10px"}}>
-                <input placeholder="Название видео" id="playlist_search" type="text" class="validate" />
+            <div className="input-field col s5" style={{marginLeft: "10px"}}>
+                <input placeholder="Название видео" id="playlist_search" type="text" className="validate" />
             </div>
             <button className="btn col offset-s1 s2" onClick={searchHandler}>Поиск</button>
             <button className="btn col offset-s1 s2" onClick={pushHandler}>Добавить видео</button>

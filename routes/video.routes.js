@@ -20,11 +20,7 @@ router.post("", async (req, res) => {
 
 router.delete("", async (req, res) => {
     try {
-        console.log(req.body);
-
         const {videoId} = req.body;
-
-        console.log(videoId);
 
         await ExternalVideo.findByIdAndDelete(videoId);
 

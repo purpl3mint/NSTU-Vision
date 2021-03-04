@@ -22,8 +22,6 @@ router.delete('', async (req, res) => {
     try {
         const {playlistId} = req.body;
 
-        console.log(playlistId);
-
         await Playlist.findByIdAndDelete(playlistId);
 
         res.status(200).json({message: 'Плейлист удален'});

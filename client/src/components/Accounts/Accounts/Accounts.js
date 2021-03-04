@@ -21,7 +21,7 @@ export const Accounts = () => {
         if (!isInitialized)
           try {
             const data = await request('/api/account?userType=admin&userName=', 'GET');
-            const newValues = data.accounts.map(account => <AccountItem name={account.login} type={form.userType} deleteHandler={deleteHandler}/>)
+            const newValues = data.accounts.map(account => <AccountItem key={account.login} name={account.login} type={form.userType} deleteHandler={deleteHandler}/>)
             setValues(newValues);
             setInitialized(true);
           } catch (e) {
@@ -50,7 +50,7 @@ export const Accounts = () => {
             if (!form.userType)
                 throw new Error("Укажите тип аккаунта");
             const data = await request('/api/account?userType=' + form.userType + "&userName=" + form.userName, 'GET');
-            const newValues = data.accounts.map(account => <AccountItem name={account.login} type={form.userType} deleteHandler={deleteHandler}/>)
+            const newValues = data.accounts.map(account => <AccountItem key={account.login} name={account.login} type={form.userType} deleteHandler={deleteHandler}/>)
             setValues(newValues);
         } catch (e) {
             message(e.message);

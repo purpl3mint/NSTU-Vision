@@ -62,7 +62,7 @@ export const Playlist = (props) => {
             <Link to="/playlist/add" className="btn col offset-s1 s2">Добавить видео</Link>
         </div>
 
-        <div class="collection">
+        <div className="collection">
             {values}
         </div>
     </div>

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { CameraItem } from './CameraItem';
 import { useHttp } from '../../../hooks/http.hook';
 import { useMessage } from '../../../hooks/message.hook';
@@ -20,7 +20,7 @@ export const Cameras = (props) => {
     if (!isInitialized)
       try {
         const data = await request("/api/camera?cameraName=", "GET");
-        const newValues = data.map(v => <CameraItem camera={v} setCurrentCamera={setCurrentCamera}/>);
+        const newValues = data.map(v => <CameraItem key={v.login} camera={v} setCurrentCamera={setCurrentCamera}/>);
         setValues(newValues);
         setInitialized(true);
       } catch (e) {

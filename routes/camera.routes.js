@@ -72,8 +72,6 @@ router.get('/:cameraId/query', async (req, res) => {
         const {date, timeStart, timeEnd} = req.query;
         let query = {cameraId: cameraId};
 
-        console.log(req.query);
-
         if (date) {
             query.date = date;
         }

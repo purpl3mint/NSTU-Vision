@@ -21,7 +21,7 @@ export const Playlists = (props) => {
     if (!isInitialized)
       try {
         const data = await request('/api/playlist?playlistName=', 'GET');
-        const newValues = data.result.map(p => <PlaylistItem playlist={p} setCurrentPlaylist={setCurrentPlaylist} deleteHandler={deleteHandler}/>);
+        const newValues = data.result.map(p => <PlaylistItem key={p.description} playlist={p} setCurrentPlaylist={setCurrentPlaylist} deleteHandler={deleteHandler}/>);
         setValues(newValues);
         setInitialized(true);
       } catch (e) {
@@ -50,7 +50,7 @@ export const Playlists = (props) => {
   const searchHandler = async () => {
     try {
       const data = await request('/api/playlist?playlistName=' + form.playlistName, 'GET');
-      const newValues = data.result.map(p => <PlaylistItem playlist={p} setCurrentPlaylist={setCurrentPlaylist} deleteHandler={deleteHandler}/>);
+      const newValues = data.result.map(p => <PlaylistItem key={p.description} playlist={p} setCurrentPlaylist={setCurrentPlaylist} deleteHandler={deleteHandler}/>);
       setValues(newValues);
     } catch (e) {
       message(e.message);

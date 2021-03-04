@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Link, } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { SidebarItem } from './SidebarItem';
 
@@ -29,16 +28,18 @@ export const Sidebar = () => {
         }
     ]
 
-    let sidebarItems = items.map(i => <SidebarItem link={i.link} name={i.name}/>);
+    let sidebarItems = items.map(i => <SidebarItem key={i.name} link={i.link} name={i.name}/>);
     switch(auth.userType){
         case 'admin':
-            sidebarItems = items.map(i => <SidebarItem link={i.link} name={i.name}/>);
+            sidebarItems = items.map(i => <SidebarItem key={i.name}  link={i.link} name={i.name}/>);
             break;
         default:
             sidebarItems = items.map(i => {
-                if (i.name != 'Аккаунты') {
-                    return <SidebarItem link={i.link} name={i.name}/>;
+                if (i.name !== 'Аккаунты') {
+                    return <SidebarItem key={i.name} link={i.link} name={i.name}/>;
                 }
+                else
+                    return false;
             });
 
     }

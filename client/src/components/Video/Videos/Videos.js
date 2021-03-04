@@ -21,7 +21,7 @@ export const Videos = (props) => {
     if (!isInitialized)
       try {
         const data = await request('/api/video?videoName=', 'GET');
-        const newValues = data.map(v => <VideoItem video={v} setCurrentVideo={setCurrentVideo} deleteHandler={deleteHandler}/>);
+        const newValues = data.map(v => <VideoItem key={v.description} video={v} setCurrentVideo={setCurrentVideo} deleteHandler={deleteHandler}/>);
         setValues(newValues);
         setInitialized(true);
       } catch (e) {
@@ -37,7 +37,7 @@ export const Videos = (props) => {
   const searchHandler = async () => {
     try {
       const data = await request('/api/video?videoName=' + form.videoName, 'GET');
-      const newValues = data.map(v => <VideoItem video={v} setCurrentVideo={setCurrentVideo} deleteHandler={deleteHandler}/>);
+      const newValues = data.map(v => <VideoItem key={v.description} video={v} setCurrentVideo={setCurrentVideo} deleteHandler={deleteHandler}/>);
       setValues(newValues);
     } catch (e) {
       message(e.message);

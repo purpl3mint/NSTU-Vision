@@ -21,7 +21,7 @@ export const CameraSearchVideo = (props) => {
         if (!isInitialized)
           try {
             const data = await request("/api/camera/" + currentCamera._id + "/query?date=" + form.date + "&timeStart=" + form.timeStart + "&timeEnd=" + form.timeEnd, "GET");
-            const newValues = data.map(v => <SearchingVideoItem video={v} setCurrentVideo={setCurrentVideo}/>);
+            const newValues = data.map(v => <SearchingVideoItem key={v.date} video={v} setCurrentVideo={setCurrentVideo}/>);
             setValues(newValues);
             setInitialized(true);
           } catch (e) {
